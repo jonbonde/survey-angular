@@ -1,0 +1,8 @@
+<div *ngIf="session">
+    <p>survey works! En big ass survey kommer snart</p>
+    <p> fyll ut undersøkelsen NÅ!</p>
+    <div *ngFor="let question of questions">
+        <div>{{question.question}}</div>
+        <input [type]="question.answer_type">
+    </div>
+</div>
