@@ -1,16 +1,20 @@
-<div *ngIf="session">
-    <p>survey works! En big ass survey kommer snart</p>
-    <p> fyll ut undersøkelsen NÅ!</p>
-    <div *ngFor="let question of questions">
-        <div>{{question.question}}</div>
-        <div *ngIf="question.answer_options">
-            <div *ngFor="let answer of question.answer_options">
-                <input [type]="question.answer_type" [value]="answer.answer_option" [name]="question.question">
-                <label>{{answer.answer_option}}</label>
+<div *ngIf="session" class="container">
+    <h1 class="headline">{{survey}}</h1>
+    <div class="questions-container">
+        <div *ngFor="let question of questions" class="question-box">
+            <div class="question">{{question.question}}</div>
+
+            <div *ngIf="question.answer_options" class="answer-options">
+                <div *ngFor="let answer of question.answer_options" class="answer-option">
+                    <label>{{answer.answer_option}}</label>
+                    <input [type]="question.answer_type" [value]="answer.answer_option" [name]="question.question"
+                        class="input-tag">
+                </div>
             </div>
-        </div>
-        <div *ngIf="!question.answer_options">
-            <input [type]="question.answer_type">
+
+            <div *ngIf="!question.answer_options">
+                <input [type]="question.answer_type">
+            </div>
         </div>
     </div>
 </div>

@@ -1,0 +1,50 @@
+.container {
+  position: absolute;
+  left: 25%;
+  width: 35vw;
+}
+
+.headline {
+  display: flex;
+  justify-self: center;
+}
+
+.questions-container {
+  position: relative;
+  padding-top: 10px;
+}
+
+.question-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding: 5px 5px 10px 10px;
+  border: solid;
+}
+
+.question {
+  width: 100%;
+  overflow: hidden;
+  word-wrap: break-word;
+  margin-bottom: 15px;
+}
+
+.answer-options {
+  width: 20%;
+  display: grid;
+  gap: 8px;
+}
+
+.answer-option {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.input-tag {
+  margin: -3px 3px 0px 0px;
+}

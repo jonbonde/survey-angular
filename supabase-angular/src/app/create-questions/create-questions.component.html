@@ -1,24 +1,39 @@
-<div *ngIf="session">
-    <label for="question">What is the question?</label>
-    <input id="question" #question type="text" /> <br>
-    <label for="ans_type">What is the answer type?</label>
-    <select id="ans_type" #ans_type (change)="updateAnsType(ans_type.value)">
-        <option disabled selected>Pick type</option>
-        <option value="text">text</option>
-        <option value="number">number</option>
-        <option value="radio">radio</option>
-    </select> <br>
-
-    <div *ngIf="ans_type.value == 'radio'">
-        <div [formGroup]="answerForm">
-            <div *ngFor="let answer of answersControls; let i = index">
-                <label [for]="'answer' + (i + 1)">What is answer option {{ i + 1 }}?</label>
-                <input [id]="'answer' + (i + 1)" type="text" [formControl]="answer" />
-            </div>
-
-            <button (click)="addAnswer()">Add another answer</button>
+<div *ngIf="session" class="container">
+    <div class="width-50">
+        <div class="grid">
+            <label for="survey">Wich survey?</label>
+            <select id="survey" #survey (change)="updateSelectedSurvey(survey.value)">
+                <option disabled selected>Pick survey</option>
+                <option *ngFor="let survey of surveys" [value]="survey.id">{{survey.survey_name}}</option>
+            </select>
         </div>
-    </div>
 
-    <button (click)="createQuestion(question.value, selectedAnsType)">Add question to survey</button>
+        <div class="grid">
+            <label for="question">What is the question?</label>
+            <input id="question" #question type="text" />
+        </div>
+
+        <div class="grid">
+            <label for="ans_type">What is the answer type?</label>
+            <select id="ans_type" #ans_type (change)="updateAnsType(ans_type.value)">
+                <option disabled selected>Pick type</option>
+                <option value="text">text</option>
+                <option value="number">number</option>
+                <option value="radio">radio</option>
+            </select>
+        </div>
+
+        <div *ngIf="ans_type.value == 'radio'">
+            <div [formGroup]="answerForm">
+                <div *ngFor="let answer of answersControls; let i = index" class="grid">
+                    <label [for]="'answer' + (i + 1)">What is answer option {{ i + 1 }}?</label>
+                    <input [id]="'answer' + (i + 1)" type="text" [formControl]="answer" />
+                </div>
+
+                <button (click)="addAnswer()" class="button-tag">Add another answer</button>
+            </div>
+        </div>
+
+        <button (click)="createQuestion(selectedSurveyInt, question.value, selectedAnsType)" class="button-tag">Add question to survey</button>
+    </div>
 </div>

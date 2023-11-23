@@ -5,9 +5,10 @@ import { LoginComponent } from './login/login.component';
 import { CreateQuestionsComponent } from './create-questions/create-questions.component';
 
 const routes: Routes = [
-  { path: 'survey', component: SurveyComponent },
+  //{ path: 'survey', component: SurveyComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'create-questions', component: CreateQuestionsComponent }
+  { path: 'create-questions', component: CreateQuestionsComponent },
+  { path: 'survey/:id', component: SurveyComponent }
 ]
 
 @NgModule({
