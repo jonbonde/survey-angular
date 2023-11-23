@@ -3,7 +3,8 @@ import { Profile, SupabaseService } from '../supabase.service';
 import { QuestionsService } from '../questions.service';
 import { Question } from '../question';
 import { AppComponent } from '../app.component';
-import { AccountComponent } from '../account/account.component';
+import { Answer } from '../answer';
+//import { AccountComponent } from '../account/account.component';
 
 @Component({
   selector: 'app-survey',
@@ -19,7 +20,7 @@ export class SurveyComponent {
     private readonly supabase: SupabaseService, 
     private questionsService: QuestionsService, 
     private appcomponent: AppComponent,
-    private accountComponent: AccountComponent
+    //private accountComponent: AccountComponent
   ) {  }
 
   ngOnInit() {

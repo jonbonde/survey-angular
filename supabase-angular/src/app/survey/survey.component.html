@@ -3,6 +3,14 @@
     <p> fyll ut undersøkelsen NÅ!</p>
     <div *ngFor="let question of questions">
         <div>{{question.question}}</div>
-        <input [type]="question.answer_type">
+        <div *ngIf="question.answer_options">
+            <div *ngFor="let answer of question.answer_options">
+                <input [type]="question.answer_type" [value]="answer.answer_option" [name]="question.question">
+                <label>{{answer.answer_option}}</label>
+            </div>
+        </div>
+        <div *ngIf="!question.answer_options">
+            <input [type]="question.answer_type">
+        </div>
     </div>
 </div>
